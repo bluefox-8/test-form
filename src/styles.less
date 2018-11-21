@@ -1,8 +1,32 @@
 body {
-    background: white;
-    text-align: center;
-
-    span {
-        font-size: 50px;
+    font-family: sans-serif;
+}
+form {
+    background-color:	#f1eee8;
+    font-size: 13px;
+    width: 280px;
+    padding: 10px;
+    border-radius: 10px;
+}
+input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border:none;
+}
+input {
+    &[type="text"], &[type="password"],&[type='email'], &[type='date'] {
+         width: 270px;
     }
 }
+
+input[type="checkbox"] {
+    margin-top: 20px;
+}
+
+input[type="submit"] {
+    padding: 5px 0;
+    background-color: #aebbd8;
+    border: 1px #adb7c7 solid;
+    width: 280px;
+    border-radius: 5px;
+  }
