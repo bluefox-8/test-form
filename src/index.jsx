@@ -9,14 +9,14 @@ class App extends React.Component {
         this.state = {
             email: '',
             password: '',
-            date: '',
-            radio: '',
+            dateOfBirth: '',
+            gender: '',
             isChecked: false
         }
     }
 
     handleInputChange = (event) => {
-        let property = event.target.getAttribute('type');
+        let property = event.target.className;
         this.setState({
             [property] : event.target.value
         });
@@ -32,8 +32,8 @@ class App extends React.Component {
         alert(` 
             email: ${this.state.email}
             password: ${this.state.password}
-            date of birth: ${this.state.date}
-            gender: ${this.state.radio}
+            date of birth: ${this.state.dateOfBirth}
+            gender: ${this.state.gender}
         `);
         event.preventDefault();
     }
@@ -42,30 +42,35 @@ class App extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <h3>Sign Up</h3>
-                <label htmlFor='email'>E-mail:</label>
+                <label>E-mail:
                 <input 
                     type='email' 
-                    id='email' 
+                    className='email' 
                     onChange={this.handleInputChange} 
                     required/> 
-                <label htmlFor='password'>Password:</label>
+                </label>
+                <label>Password:
                 <input 
                     type='password' 
-                    id='password' 
+                    className='password' 
                     onChange={this.handleInputChange} 
                     required /> 
-                <label htmlFor='date'>Date of Birth:</label>
+                </label>
+                <label>Date of Birth:
                 <input 
                     type='date' 
-                    id='date' 
-                    onChange={this.handleInputChange}/> 
+                    className='dateOfBirth' 
+                    onChange={this.handleInputChange}/>
+                </label> 
                 <input 
-                    type='radio' 
+                    type='radio'
+                    className='gender' 
                     name='gender' 
                     value='male' 
                     onChange={this.handleInputChange} /> Male
                 <input 
-                    type='radio' 
+                    type='radio'
+                    className='gender' 
                     name='gender' 
                     value='female' 
                     onChange={this.handleInputChange} /> Female <br/>
