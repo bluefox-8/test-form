@@ -9,37 +9,20 @@ class App extends React.Component {
         this.state = {
             email: '',
             password: '',
-            dateOfBirth: '',
-            gender: '',
+            date: '',
+            radio: '',
             isChecked: false
         }
     }
 
-    handleEmailChange = (event) => {
+    handleInputChange = (event) => {
+        let property = event.target.getAttribute('type');
         this.setState({
-            email: event.target.value
+            [property] : event.target.value
         });
     }
 
-    handlePasswordChange = (event) => {
-        this.setState({
-            password: event.target.value
-        });
-    }
-
-    handleDateChange = (event) => {
-        this.setState({
-            dateOfBirth: event.target.value
-        });
-    }
-
-    handleRadioChange = (event) => {
-        this.setState({
-            gender: event.target.value
-        });
-    }
-
-    handleCheckboxChange = () => {
+    handleCheckboxClick = () => {
         this.setState({
             isChecked: !this.state.isChecked
         });
@@ -49,8 +32,8 @@ class App extends React.Component {
         alert(` 
             email: ${this.state.email}
             password: ${this.state.password}
-            date of birth: ${this.state.dateOfBirth}
-            gender: ${this.state.gender}
+            date of birth: ${this.state.date}
+            gender: ${this.state.radio}
         `);
         event.preventDefault();
     }
@@ -60,14 +43,36 @@ class App extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <h3>Sign Up</h3>
                 <label htmlFor='email'>E-mail:</label>
-                <input type='email' id='email' onChange={this.handleEmailChange} required/> 
+                <input 
+                    type='email' 
+                    id='email' 
+                    onChange={this.handleInputChange} 
+                    required/> 
                 <label htmlFor='password'>Password:</label>
-                <input type='password' id='password' onChange={this.handlePasswordChange} required /> 
+                <input 
+                    type='password' 
+                    id='password' 
+                    onChange={this.handleInputChange} 
+                    required /> 
                 <label htmlFor='date'>Date of Birth:</label>
-                <input type='date' id='date' onChange={this.handleDateChange}/> 
-                <input type='radio' name='gender' value='male' onChange={this.handleRadioChange} /> Male
-                <input type='radio' name='gender' value='female' onChange={this.handleRadioChange} /> Female <br/>
-                <input type='checkbox' onClick={this.handleCheckboxChange} required /> I agree to the terms <br/>
+                <input 
+                    type='date' 
+                    id='date' 
+                    onChange={this.handleInputChange}/> 
+                <input 
+                    type='radio' 
+                    name='gender' 
+                    value='male' 
+                    onChange={this.handleInputChange} /> Male
+                <input 
+                    type='radio' 
+                    name='gender' 
+                    value='female' 
+                    onChange={this.handleInputChange} /> Female <br/>
+                <input 
+                    type='checkbox' 
+                    onClick={this.handleCheckboxClick} 
+                    required /> I agree to the terms <br/>
                 <input type='submit' />
             </form>
         );
