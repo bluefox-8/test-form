@@ -18,7 +18,7 @@ class App extends React.Component {
     handleInputChange = (event) => {
         let property = event.target.className;
         this.setState({
-            [property] : event.target.value
+            [property]: event.target.value
         });
     }
 
@@ -37,47 +37,47 @@ class App extends React.Component {
         `);
         event.preventDefault();
     }
-    
-    render () {
+
+    render() {
         return (
             <form onSubmit={this.handleSubmit}>
                 <h3>Sign Up</h3>
                 <label>E-mail:
-                <input 
-                    type='email' 
-                    className='email' 
-                    onChange={this.handleInputChange} 
-                    required/> 
+                        <input
+                            type='email'
+                            className='email'
+                            onChange={this.handleInputChange}
+                            required />
                 </label>
                 <label>Password:
-                <input 
-                    type='password' 
-                    className='password' 
-                    onChange={this.handleInputChange} 
-                    required /> 
+                        <input
+                            type='password'
+                            className='password'
+                            onChange={this.handleInputChange}
+                            required />
                 </label>
                 <label>Date of Birth:
-                <input 
-                    type='date' 
-                    className='dateOfBirth' 
-                    onChange={this.handleInputChange}/>
-                </label> 
-                <input 
+                        <input
+                            type='date'
+                            className='dateOfBirth'
+                            onChange={this.handleInputChange} />
+                </label>
+                <input
                     type='radio'
-                    className='gender' 
-                    name='gender' 
-                    value='male' 
+                    className='gender'
+                    name='gender'
+                    value='male'
                     onChange={this.handleInputChange} /> Male
-                <input 
+                <input
                     type='radio'
-                    className='gender' 
-                    name='gender' 
-                    value='female' 
-                    onChange={this.handleInputChange} /> Female <br/>
-                <input 
-                    type='checkbox' 
-                    onClick={this.handleCheckboxClick} 
-                    required /> I agree to the terms <br/>
+                    className='gender'
+                    name='gender'
+                    value='female'
+                    onChange={this.handleInputChange} /> Female <br />
+                <input
+                    type='checkbox'
+                    onClick={this.handleCheckboxClick}
+                    required /> I agree to the terms <br />
                 <input type='submit' />
             </form>
         );
